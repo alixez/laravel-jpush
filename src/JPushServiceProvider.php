@@ -21,7 +21,7 @@ class JPushServiceProvider extends ServiceProvider
         if(function_exists('config_path')) {
             $publishPath = config_path('laravel-jpush.php');
         } else {
-            $publishPath = $this->app->basePath().'/config/laravel-jpush';
+            $publishPath = $this->app->basePath().'/config/laravel-jpush.php';
         }
 
         $this->publishes([
@@ -33,10 +33,9 @@ class JPushServiceProvider extends ServiceProvider
     {
         $configPath = __DIR__.'/../config/laravel-jpush.php';
         $this->mergeConfigFrom($configPath, 'laravel-jpush');
-        $config = $this->app['config']->get('laravel-jpush');
 
-        $this->app->singleton('\Pikachu\LaravelJPush\Facades\JPush', function () {
-            return new Client($config['app_key'], $config['master_secret']);
+        $this->app->singleton('jpush', function () {
+            return new Client(Config::get('laravel-jpush.app_key'), Config::get('laravel-jpush.master_secret'));
         });
     }
 }
