@@ -1,0 +1,23 @@
+{
+    "name": "pikachu/laravel-jpush",
+    "description": "laravel-jpush, the Jpush driver of broadcaster",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alixe Zhou",
+            "email": "alixe.z@outlook.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "jpush/jpush": "^3.5",
+        "illuminate/support": "^5.3",
+        "illuminate/filesystem": "^5.3",
+        "illuminate/console": "^5.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pikachu\\LaravelJPush\\": "src/"
+        }
+    }
+}
